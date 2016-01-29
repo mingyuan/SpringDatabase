@@ -70,7 +70,11 @@ public class MemberDao {
 		
 	}
 	
+	/**
+	 * 결과가 다수의 행일때는 quert메서드를 구현 , 결과가 다수의 칼럼일경우 두번째 인자에 RowMapper인터페이스를 구현
+	 * **/
 	public List<Member> selectAll(){
+		
 		List<Member> members = null;
 		members = jdbcTemplate.query("select * from springmember",new RowMapper<Member>(){
 
@@ -88,6 +92,9 @@ public class MemberDao {
 	}
 	
 	public int count(){
+		/**
+		 * 결과가 한개의 행일때는 queryForObject 메서드를 구현 , 결과가 한칼럼일때는 칼럼값을 리턴
+		 * **/
 		Integer count = jdbcTemplate.queryForObject("select count(*) from springmember", Integer.class);
 		return count;
 	}

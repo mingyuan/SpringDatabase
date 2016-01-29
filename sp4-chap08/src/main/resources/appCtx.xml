@@ -5,13 +5,14 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans.xsd">
   
+  
+  <!-- 커넥션 풀을 구현한 DataSource객체 빈생성 -->
   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
   destroy-method="close">
   <property name="driverClass" value="com.mysql.jdbc.Driver"/>
   <property name="jdbcUrl" value="jdbc:mysql://localhost/mydb"/>
   <property name="user" value="root"/>
   <property name="password" value="9502"/>
-  
   </bean>
   
   <bean id="memberDao" class="spring.MemberDao">
