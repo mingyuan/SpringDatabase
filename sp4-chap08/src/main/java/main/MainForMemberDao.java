@@ -36,7 +36,7 @@ public class MainForMemberDao {
 	
 	private static void updateMember(){
 		System.out.println("-----updateMember");
-		Member member = memberDao.selectByEmail("madvirus@masvirus.net");
+		Member member = memberDao.selectByEmail("madvirus@madvirus.net");
 		member.changePassword(member.getPassword(), "122334");
 		memberDao.update(member);
 		System.out.println("-----complete updateMember");
